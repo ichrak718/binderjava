@@ -1,0 +1,851 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="703.0" prefWidth="955.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.binder.gui.HomeBinderController">
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6dc8c4" height="652.0" layoutX="-2.0" layoutY="27.0" stroke="#6dc8c4" strokeType="INSIDE" width="148.0" />
+    <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="67.0" layoutY="-3.0" stroke="#6dc8c4" strokeLineCap="ROUND" strokeType="INSIDE" strokeWidth="17.0" width="148.0" />
+    <Button fx:id="btClass" layoutX="14.0" layoutY="91.0" mnemonicParsing="false" onAction="#btClassOnClick" prefHeight="44.0" prefWidth="134.0" style="-fx-background-color: #6dc8c4;" text="Classes &amp; Pupils" textFill="#222222">
+        <font>
+            <Font name="Jokerman" size="14.0" />
+        </font>
+    </Button>
+    <Label layoutX="94.0" layoutY="13.0" prefHeight="25.0" prefWidth="42.0" text="ER" textFill="#6dc8c4">
+        <font>
+            <Font name="System Bold" size="24.0" />
+        </font>
+    </Label>
+    <Label layoutX="27.0" layoutY="12.0" prefHeight="33.0" prefWidth="67.0" text="BIND">
+        <font>
+            <Font name="Arial Black" size="24.0" />
+        </font>
+    </Label>
+    <Separator layoutY="89.0" prefHeight="5.0" prefWidth="148.0" />
+    <Separator layoutY="134.0" prefHeight="5.0" prefWidth="148.0" />
+    <ImageView fitHeight="26.0" fitWidth="33.0" layoutX="1.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+        <image>
+            <Image url="@class.png" />
+        </image>
+    </ImageView>
+    <AnchorPane id="club" fx:id="anchorClass" layoutX="144.0" layoutY="3.0" prefHeight="692.0" prefWidth="924.0" style="-fx-background-color: #efefe5;">
+       
+       
+        <children>
+            <AnchorPane fx:id="anchorClassGestion" minHeight="500.0" prefHeight="612.0" prefWidth="921.0" visible="false">
+                <children>
+                    <ImageView fitHeight="603.0" fitWidth="838.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@bac.jpg" />
+                        </image>
+                    </ImageView>
+                    <Label alignment="CENTER" layoutY="-3.0" prefHeight="92.0" prefWidth="922.0" style="-fx-background-color: #6dc8c4;" text="Classes Management" textFill="BLACK" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                        <font>
+                            <Font name="Jokerman" size="24.0" />
+                        
+                        
+                        </font>
+                    </Label>
+            
+                    <GridPane layoutX="5.0" layoutY="-26.0" prefHeight="714.0" prefWidth="912.0" AnchorPane.bottomAnchor="-76.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="-26.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="890.0" minWidth="10.0" prefWidth="890.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.5999755859375" minWidth="0.0" prefWidth="0.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints maxHeight="217.8000244140625" minHeight="0.0" prefHeight="143.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="404.0" minHeight="10.0" prefHeight="365.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <HBox prefHeight="100.0" prefWidth="200.0" AnchorPane.topAnchor="5.0" GridPane.rowIndex="1">
+                                <GridPane.margin>
+                                    <Insets bottom="10.0" />
+                                </GridPane.margin>
+                                <children>
+                                    <TableView fx:id="tableClass" editable="true" prefHeight="394.0" prefWidth="511.0" AnchorPane.topAnchor="5.0">
+                                        <columns>
+                                            <TableColumn fx:id="idClass" prefWidth="155" text="ID" visible="false" />
+                                            <TableColumn fx:id="nameClass" prefWidth="255.99998474121094" text="Classes Name" />
+                                            <TableColumn fx:id="session" minWidth="0.0" prefWidth="254.4000244140625" text="Session" />
+                            
+                                        </columns>
+                                    </TableView>
+                                    <AnchorPane prefHeight="394.0" prefWidth="282.0">
+                                        <children>
+                                            <Button fx:id="btAdd" layoutX="42.0" layoutY="134.0" mnemonicParsing="false" onAction="#btAddOnClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color:  #48d1cc;" text="ADD" textFill="BLACK">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                            </Button>
+                                            <Button fx:id="btUpdate" layoutX="42.0" layoutY="178.0" mnemonicParsing="false" onAction="#btUpdateOnClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color:  #48d1cc;" text="UPDATE" textFill="BLACK">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                            </Button>
+                                            <Button fx:id="btDelete" layoutX="42.0" layoutY="222.0" mnemonicParsing="false" onAction="#btDeleteOnClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color:  #48d1cc;" text="DELETE" textFill="BLACK">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                            </Button>
+      
+                                            <Button fx:id="btTimeTable" layoutX="42.0" layoutY="91.0" mnemonicParsing="false" onAction="#btTimeTableOnClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color:  #48d1cc;" text="TIME TABLE" textFill="BLACK">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                            </Button>
+                                            <Button fx:id="btPupilTable" layoutX="42.0" layoutY="47.0" mnemonicParsing="false" onAction="#btPupilsOnClick" prefHeight="36.0" prefWidth="148.0" style="-fx-background-color:  #48d1cc;" text="PUPILS" textFill="BLACK">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                            </Button>
+                                            <ImageView fitHeight="35.0" fitWidth="48.0" layoutX="42.0" layoutY="48.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@pupil.png" />
+                                                </image>
+                                            </ImageView>
+                                            <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="42.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@timetable.png" />
+                                                </image>
+                                            </ImageView>
+                                            <ImageView fitHeight="35.0" fitWidth="42.0" layoutX="42.0" layoutY="135.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@add.png" />
+                                                </image>
+                                            </ImageView>
+                                            <ImageView fitHeight="37.0" fitWidth="42.0" layoutX="42.0" layoutY="178.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@update.png" />
+                                                </image>
+                                            </ImageView>
+                                            <ImageView fitHeight="35.0" fitWidth="35.0" layoutX="42.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">
+                                                <image>
+                                                    <Image url="@delete.png" />
+                                                </image>
+                                            </ImageView>
+      
+            
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </HBox>
+      
+                        </children>
+                    </GridPane>
+                </children>
+            </AnchorPane>
+            <AnchorPane fx:id="listexams" minHeight="500.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="700.0" prefWidth="837.0" style="-fx-background-color: #E6E6E6;" visible="false">
+                <children>
+                    <Pane layoutX="-2.0" layoutY="-3.0" prefHeight="92.0" prefWidth="826.0" style="-fx-background-color: #6dc8c4;" AnchorPane.bottomAnchor="611.0" AnchorPane.leftAnchor="-2.0" AnchorPane.rightAnchor="-74.0" AnchorPane.topAnchor="-3.0">
+                        <children>
+                            <Label layoutX="276.0" layoutY="28.0" text="Exam Management">
+                                <font>
+                                    <Font name="Jokerman" size="24.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </Pane>
+                    <GridPane layoutX="2.0" layoutY="148.0" prefHeight="524.0" prefWidth="834.0" AnchorPane.bottomAnchor="28.0" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="-86.0" AnchorPane.topAnchor="148.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="890.0" minWidth="10.0" prefWidth="740.4" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.5999755859375" minWidth="0.0" prefWidth="0.0" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints maxHeight="217.8000244140625" minHeight="0.0" prefHeight="37.800025939941406" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="444.7999877929687" minHeight="10.0" prefHeight="360.7999877929687" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="1">
+                                <GridPane.margin>
+                                    <Insets bottom="10.0" />
+                                </GridPane.margin>
+                                <children>
+                                    <TableView fx:id="tableExams" minHeight="338.0" prefHeight="394.0" prefWidth="603.0">
+                                        <columns>
+                                            <TableColumn fx:id="Subject" prefWidth="171.9999237060547" text="Subject" />
+                                            <TableColumn fx:id="file" prefWidth="177.60003662109375" text="File" />
+                                            <TableColumn fx:id="duration" minWidth="0.0" prefWidth="255.20001220703125" text="Duration" />
+                                            <TableColumn fx:id="date" prefWidth="152.00006103515625" text="Date" />
+                                        </columns>
+                                    </TableView>
+                                    <AnchorPane prefHeight="394.0" prefWidth="179.0">
+                                        <children>
+                                            <Button fx:id="btAjouter" layoutX="21.0" layoutY="48.0" mnemonicParsing="false" onAction="#btAjouterOnClick" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #48d1cc;" text="Add">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                                <graphic>
+                                                    <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@add.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                            <Button fx:id="btSupprimer" layoutX="21.0" layoutY="168.0" mnemonicParsing="false" onAction="#btSupprimerOnClick" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #48d1cc;" text="Delete">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                                <graphic>
+                                                    <ImageView fitHeight="29.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@delete.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                            <Button fx:id="btModifier" layoutX="21.0" layoutY="104.0" mnemonicParsing="false" onAction="#btModifierOnClick" prefHeight="35.0" prefWidth="120.0" style="-fx-background-color: #48d1cc;" text="Update">
+                                                <font>
+                                                    <Font name="Jokerman" size="15.0" />
+                                                </font>
+                                                <graphic>
+                                                    <ImageView fitHeight="29.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@update.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                            <Button fx:id="exportToXL" layoutX="21.0" layoutY="223.0" mnemonicParsing="false" onAction="#btExportOnClick" prefHeight="32.0" prefWidth="120.0" style="-fx-background-color: #48d1cc;" text="Export">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                                <graphic>
+                                                    <ImageView fitHeight="29.0" fitWidth="49.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@icons8-microsoft-excel-2019-48.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </HBox>
+                            <HBox prefHeight="101.0" prefWidth="796.0">
+                                <children>
+                                    <Pane prefHeight="57.0" prefWidth="254.0">
+                                        <children>
+                                            <Pane layoutX="-3.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="47.0" />
+                                        </children>
+                                    </Pane>
+                                    <TextField fx:id="tfRechecher" onKeyReleased="#tfRechecherOnKeyReleased" prefHeight="10.0" prefWidth="334.0" promptText="Search..." />
+                                </children>
+                            </HBox>
+                        </children>
+                    </GridPane>
+                </children>
+            </AnchorPane>
+            <AnchorPane id="AnchorPane" fx:id="listgrades" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="700.0" prefWidth="920.0" style="-fx-background-color: #E6E6E6;" visible="false">
+                <children>
+                    <Pane layoutY="-3.0" prefHeight="92.0" prefWidth="920.0" style="-fx-background-color: #6dc8c4;" AnchorPane.bottomAnchor="611.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-3.0">
+                        <children>
+                            <Label layoutX="330.0" layoutY="20.0" text="Grade Management ">
+                                <font>
+                                    <Font name="Jokerman" size="24.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </Pane>
+                    <GridPane layoutX="5.0" layoutY="93.0" prefHeight="602.0" prefWidth="910.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="93.0">
+                        <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="895.200048828125" minWidth="10.0" prefWidth="796.0000244140625" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="434.5999755859375" minWidth="0.0" prefWidth="114.39997558593745" />
+                        </columnConstraints>
+                        <rowConstraints>
+                            <RowConstraints maxHeight="241.60001220703126" minHeight="0.0" prefHeight="134.0" vgrow="SOMETIMES" />
+                            <RowConstraints maxHeight="468.0" minHeight="10.0" prefHeight="468.0" vgrow="SOMETIMES" />
+                        </rowConstraints>
+                        <children>
+                            <HBox prefHeight="427.0" prefWidth="894.0" GridPane.rowIndex="1">
+                                <GridPane.margin>
+                                    <Insets bottom="10.0" />
+                                </GridPane.margin>
+                                <children>
+                                    <TableView fx:id="tableGrade" prefHeight="412.0" prefWidth="698.0">
+                                        <columns>
+                                            <TableColumn fx:id="Examname" prefWidth="147.20001220703125" text="Exam" />
+                                            <TableColumn fx:id="grade" prefWidth="159.20001220703125" text="Grade" />
+                                            <TableColumn fx:id="Teacher" minWidth="0.0" prefWidth="208.0" text="Teacher" />
+                                            <TableColumn fx:id="pupil" minWidth="1.60003662109375" prefWidth="181.60003662109375" text="Pupil" />
+                                        </columns>
+                                    </TableView>
+                                    <AnchorPane prefHeight="458.0" prefWidth="124.0">
+                                        <children>
+                                            <Button fx:id="btAjouter1" layoutX="21.0" layoutY="34.0" mnemonicParsing="false" onAction="#btAjouterOnClick1" prefHeight="46.0" prefWidth="148.0" style="-fx-background-color: #6dc8c4;" text="Add">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                                <graphic>
+                                                    <ImageView fitHeight="36.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@add.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                            <Button fx:id="btSupprimer1" layoutX="21.0" layoutY="168.0" mnemonicParsing="false" onAction="#btSupprimerOnClick1" prefHeight="44.0" prefWidth="148.0" style="-fx-background-color: #6dc8c4;" text="Delete">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                                <graphic>
+                                                    <ImageView fitHeight="35.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@delete.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                            <Button fx:id="btModifier1" layoutX="21.0" layoutY="103.0" mnemonicParsing="false" onAction="#btModifierOnClick1" prefHeight="42.0" prefWidth="148.0" style="-fx-background-color: #6dc8c4;" text="Update">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                                <graphic>
+                                                    <ImageView fitHeight="107.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@update.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                            <Button fx:id="exportToXL1" layoutX="21.0" layoutY="228.0" mnemonicParsing="false" onAction="#btExportOnClick1" prefHeight="44.0" prefWidth="148.0" style="-fx-background-color: #6dc8c4;" text="Export">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                                <graphic>
+                                                    <ImageView fitHeight="110.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@icons8-microsoft-excel-2019-48.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                            <Button fx:id="btGetStatistics" layoutX="23.0" layoutY="286.0" mnemonicParsing="false" onAction="#btGetStatisticsOnClick" prefHeight="38.0" prefWidth="148.0" style="-fx-background-color: #6dc8c4;" text="Get Statistics">
+                                                <font>
+                                                    <Font name="Jokerman" size="14.0" />
+                                                </font>
+                                                <graphic>
+                                                    <ImageView fitHeight="130.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                                        <image>
+                                                            <Image url="@icons8-investment-portfolio-48.png" />
+                                                        </image>
+                                                    </ImageView>
+                                                </graphic>
+                                            </Button>
+                                        </children>
+                                    </AnchorPane>
+                                </children>
+                            </HBox>
+                            <HBox minWidth="-Infinity" prefHeight="226.0" prefWidth="858.0">
+                                <children>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="5.0" />
+                                    <RadioButton fx:id="rbTous" mnemonicParsing="false" onAction="#rbTousOnSelect" prefHeight="18.0" prefWidth="63.0" selected="true" text="All">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="ConsulterValidation" />
+                                        </toggleGroup>
+                                        <font>
+                                            <Font name="Jokerman" size="12.0" />
+                                        </font>
+                                    </RadioButton>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="5.0" />
+                                    <RadioButton fx:id="rbsupdix" mnemonicParsing="false" onAction="#rbsupdixOnSelect" prefHeight="18.0" prefWidth="69.0" text="&gt;10">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="ConsulterValidation1" />
+                                        </toggleGroup>
+                                        <font>
+                                            <Font name="Jokerman" size="12.0" />
+                                        </font>
+                                    </RadioButton>
+                                    <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="5.0" />
+                                    <RadioButton fx:id="rbinfdix" mnemonicParsing="false" onAction="#rbinfdixOnSelect" prefHeight="18.0" prefWidth="59.0" text="&lt;10">
+                                        <toggleGroup>
+                                            <ToggleGroup fx:id="ConsulterValidation2" />
+                                        </toggleGroup>
+                                        <font>
+                                            <Font name="Jokerman" size="12.0" />
+                                        </font>
+                                    </RadioButton>
+                                    <Pane prefHeight="138.0" prefWidth="60.0">
+                                        <children>
+                                            <Pane layoutX="-3.0" layoutY="-17.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="5.0" />
+                                        </children>
+                                    </Pane>
+                                    <TextField fx:id="tfRechecher1" onKeyReleased="#tfRechecherOnKeyReleased" prefHeight="7.0" prefWidth="320.0" promptText="Search..." />
+                                </children>
+                            </HBox>
+                        </children>
+                    </GridPane>
+                </children>
+            </AnchorPane>
+            <AnchorPane fx:id="CID" minHeight="500.0" prefHeight="612.0" prefWidth="921.0" visible="false">
+                
+                <children>
+                    <ImageView fitHeight="579.0" fitWidth="716.0" layoutX="-14.0" layoutY="66.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@bac.jpg" />
+                        </image>
+                    </ImageView>
+                    <AnchorPane layoutX="-6.0" prefHeight="66.0" prefWidth="710.0" style="-fx-background-color: #6dc8c4;">
+                        <children>
+                            <Label layoutX="300.0" layoutY="12.0" text="Clubs!">
+                                <font>
+                                    <Font name="Tempus Sans ITC" size="37.0" />
+                                </font>
+                            </Label>
+                        </children>
+                    </AnchorPane>
+                    <TableView fx:id="tab" layoutX="87.0" layoutY="113.0" prefHeight="200.0" prefWidth="226.0">
+                        <columns>
+                            <TableColumn fx:id="nameC" prefWidth="75.0" text="name" />
+                            <TableColumn fx:id="specialtyC" prefWidth="75.0" text="specialty" />
+                            <TableColumn fx:id="responsibleC" prefWidth="75.0" text="responsible" />
+                        </columns>
+                    </TableView>
+                    <Label layoutX="169.0" layoutY="89.0" text="List of clubs">
+                        <font>
+                            <Font name="System Bold" size="12.0" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="rechercheBar" layoutX="126.0" layoutY="334.0" onAction="#rechercher" promptText="search" />
+                    <TextField fx:id="nameAJ" layoutX="439.0" layoutY="146.0" promptText="name" />
+                    <ComboBox fx:id="specialtyCom" layoutX="439.0" layoutY="201.0" prefWidth="150.0" promptText="select a specialty" />
+                    <ComboBox fx:id="teacherC" layoutX="439.0" layoutY="255.0" prefWidth="150.0" promptText="select a responsible" />
+                    <Button alignment="CENTER_RIGHT" layoutX="457.0" layoutY="322.0" mnemonicParsing="false" onAction="#modifier" prefHeight="32.0" prefWidth="97.0" style="-fx-background-radius: 10; -fx-background-color: #F3F781;" text="update Club" />
+                    <Button alignment="CENTER_RIGHT" layoutX="353.0" layoutY="322.0" mnemonicParsing="false" onAction="#ajouter" prefHeight="32.0" prefWidth="97.0" style="-fx-background-radius: 10; -fx-background-color: #BEF781;" text="add Club" />
+                    <Button alignment="CENTER_RIGHT" layoutX="572.0" layoutY="322.0" mnemonicParsing="false" onAction="#supprimer" prefHeight="32.0" prefWidth="97.0" style="-fx-background-radius: 10; -fx-background-color: #FA5858;" text="delete Club" />
+                    <Button fx:id="export" alignment="BOTTOM_CENTER" layoutX="476.0" layoutY="72.0" mnemonicParsing="false" onAction="#exportToXL" prefHeight="54.0" prefWidth="77.0" style="-fx-background-color: A9BCF5; -fx-background-radius: 10;" text="export" />
+                    <ProgressIndicator fx:id="pi" cache="true" layoutX="126.0" layoutY="388.0" prefHeight="118.0" prefWidth="149.0" progress="0.1">
+                        <effect>
+                            <InnerShadow />
+                        </effect>
+                    </ProgressIndicator>
+                    <Label layoutX="160.0" layoutY="514.0" text="Social Progress">
+                        <font>
+                            <Font name="System Bold" size="12.0" />
+                        </font>
+                    </Label>
+                    <ImageView fitHeight="42.0" fitWidth="42.0" layoutX="493.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-download-from-the-cloud-100%20(1).png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="17.0" fitWidth="29.0" layoutX="365.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-checked-48.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="580.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-delete-48.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="17.0" fitWidth="17.0" layoutX="468.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-edit-48.png" />
+                        </image>
+                    </ImageView>
+                </children>
+                
+            </AnchorPane>
+            
+            <AnchorPane fx:id="AID" minHeight="500.0" prefHeight="612.0" prefWidth="921.0" visible="false">
+                <children>
+                    <AnchorPane layoutX="-7.0" prefHeight="63.0" prefWidth="769.0" style="-fx-background-color: #6dc8c4;">
+                        <children>
+                            <Label layoutX="336.0" layoutY="7.0" text="Activities">
+                                <font>
+                                    <Font name="Tempus Sans ITC" size="34.0" />
+                                </font>
+                            </Label>
+                            <ImageView fitHeight="49.0" fitWidth="58.0" layoutX="32.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@icons8-volleyball-48.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+                    <ImageView fitHeight="538.0" fitWidth="784.0" layoutX="-2.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@bac.jpg" />
+                        </image>
+                    </ImageView>
+                    <TableView fx:id="tabA" layoutX="102.0" layoutY="142.0" prefHeight="200.0" prefWidth="375.0">
+                        <columns>
+                            <TableColumn fx:id="aboutA" prefWidth="75.0" text="about" />
+                            <TableColumn fx:id="durationA" prefWidth="75.0" text="duration" />
+                            <TableColumn fx:id="locationA" prefWidth="75.0" text="location" />
+                            <TableColumn fx:id="dateA" prefWidth="75.0" text="date" />
+                            <TableColumn fx:id="clubA" prefWidth="75.0" text="club" />
+                        </columns>
+                    </TableView>
+                    <TextField fx:id="aboutAJ" layoutX="90.0" layoutY="386.0" promptText="about" />
+                    <TextField fx:id="durationAJ" layoutX="271.0" layoutY="386.0" promptText="duration" />
+                    <TextField fx:id="locationAJ" layoutX="90.0" layoutY="429.0" promptText="location" />
+                    <ComboBox fx:id="clubAJ" layoutX="271.0" layoutY="436.0" prefWidth="150.0" promptText="select a club" />
+                    <DatePicker fx:id="dp" layoutX="164.0" layoutY="483.0" promptText="pick a date" />
+                    <TextField fx:id="rechercheBarA" layoutX="335.0" layoutY="101.0" onAction="#rechercherA" promptText="Search" />
+                    <Button alignment="CENTER_RIGHT" layoutX="524.0" layoutY="161.0" mnemonicParsing="false" onAction="#supprimerA" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: #6dc8c4;" text="delete activity" />
+                    <Button alignment="CENTER_RIGHT" layoutX="524.0" layoutY="217.0" mnemonicParsing="false" onAction="#modifierA" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: #6dc8c4;" text="update activity" />
+                    <Button alignment="CENTER_RIGHT" layoutX="524.0" layoutY="275.0" mnemonicParsing="false" onAction="#addC" prefHeight="32.0" prefWidth="105.0" style="-fx-background-color: #6dc8c4;" text="go to club" />
+                    <Button alignment="CENTER_RIGHT" layoutX="214.0" layoutY="531.0" mnemonicParsing="false" onAction="#ajouterA" prefHeight="40.0" prefWidth="105.0" style="-fx-background-color: #6dc8c4;" text="add activity" />
+                    <ImageView fitHeight="32.0" fitWidth="38.0" layoutX="214.0" layoutY="535.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@add.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="25.0" fitWidth="32.0" layoutX="524.0" layoutY="165.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-delete-48.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="18.0" fitWidth="45.0" layoutX="528.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-edit-48.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="32.0" fitWidth="32.0" layoutX="530.0" layoutY="275.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-repeat-button-48.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="32.0" fitWidth="25.0" layoutX="307.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-search-100%20(1).png" />
+                        </image>
+                    </ImageView>
+                </children>
+                
+            </AnchorPane>
+            
+            <AnchorPane fx:id="PID" minHeight="500.0" prefHeight="612.0" prefWidth="921.0" visible="false">
+                <children>
+                    <AnchorPane prefHeight="60.0" prefWidth="631.0" style="-fx-background-color: #6dc8c4;" visible="false">
+                        <children>
+                            <Label layoutX="204.0" text="Parents registration">
+                                <font>
+                                    <Font name="Tempus Sans ITC" size="31.0" />
+                                </font>
+                            </Label>
+                            <ImageView fitHeight="65.0" fitWidth="66.0" layoutX="14.0" layoutY="-5.0" pickOnBounds="true" preserveRatio="true">
+                                <image>
+                                    <Image url="@icons8-bookmark-100.png" />
+                                </image>
+                            </ImageView>
+                        </children>
+                    </AnchorPane>
+                    <ImageView fitHeight="446.0" fitWidth="643.0" layoutY="54.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@bac.jpg" />
+                        </image>
+                    </ImageView>
+                    <TextField fx:id="rechercheBarP" layoutX="386.0" layoutY="71.0" onAction="#rechercherP" promptText="search" style="-fx-border-color: #6dc8c4;" />
+                    <TextField fx:id="nameAj" layoutX="117.0" layoutY="186.0" promptText="name" style="-fx-border-color: #6dc8c4;" />
+                    <TextField fx:id="mailAJ" layoutX="117.0" layoutY="250.0" promptText="mail" style="-fx-border-color: #6dc8c4;" />
+                    <TextField fx:id="phoneAJ" layoutX="117.0" layoutY="318.0" promptText="phone" style="-fx-border-color: #6dc8c4;" />
+                    <TableView fx:id="tabP" layoutX="350.0" layoutY="124.0" prefHeight="200.0" prefWidth="224.0">
+                        <columns>
+                            <TableColumn fx:id="nameP" prefWidth="75.0" text="name" />
+                            <TableColumn fx:id="mailP" prefWidth="75.0" text="mail" />
+                            <TableColumn fx:id="phoneP" prefWidth="75.0" text="phone" />
+                        </columns>
+                    </TableView>
+                    <Button alignment="CENTER_RIGHT" layoutX="26.0" layoutY="391.0" mnemonicParsing="false" onAction="#ajouterP" prefHeight="35.0" prefWidth="113.0" style="-fx-background-radius: 10; -fx-background-color: #BEF781;" text="add parent" />
+                    <Button alignment="CENTER_RIGHT" layoutX="156.0" layoutY="391.0" mnemonicParsing="false" onAction="#modifierP" prefHeight="35.0" prefWidth="122.0" style="-fx-background-radius: 10; -fx-background-color: #F3F781;" text="update parent" />
+                    <Button alignment="CENTER_RIGHT" layoutX="307.0" layoutY="391.0" mnemonicParsing="false" onAction="#supprimerP" prefHeight="35.0" prefWidth="113.0" style="-fx-background-radius: 10; -fx-background-color: #FA5858;" text="delete parent" />
+                    <Label layoutX="66.0" layoutY="191.0" prefWidth="74.0" text="Name :" />
+                    <Label layoutX="66.0" layoutY="255.0" text="Mail :" />
+                    <Label layoutX="67.0" layoutY="323.0" text="Phone :" />
+                    <ImageView fitHeight="27.0" fitWidth="21.0" layoutX="172.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-edit-48.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="35.0" fitWidth="29.0" layoutX="37.0" layoutY="394.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-checked-48.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="27.0" fitWidth="21.0" layoutX="319.0" layoutY="398.0" pickOnBounds="true" preserveRatio="true">
+                        <image>
+                            <Image url="@icons8-delete-48.png" />
+                        </image>
+                    </ImageView>
+                </children>
+                
+            </AnchorPane>
+        </children>
+    </AnchorPane>
+    <AnchorPane fx:id="anchorHome" layoutX="145.0" prefHeight="512.0" prefWidth="684.0" visible="false">
+        <children>
+            <ImageView fitHeight="694.0" fitWidth="863.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@home.jpg" />
+                </image>
+            </ImageView>
+            <AnchorPane layoutX="52.0" layoutY="69.0" prefHeight="222.0" prefWidth="218.0" />
+        </children>
+    </AnchorPane>
+    
+    <Button fx:id="btExam" layoutX="7.0" layoutY="149.0" mnemonicParsing="false" onAction="#btExamOnClick" prefHeight="44.0" prefWidth="134.0" style="-fx-background-color: #6dc8c4;" text="Exams" textFill="#222222">
+        <font>
+            <Font name="Jokerman" size="14.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="82.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@icons8-exam-48.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    <Separator layoutX="6.0" layoutY="191.0" prefHeight="5.0" prefWidth="134.0" />
+    <Button fx:id="btGrade" layoutX="5.0" layoutY="195.0" mnemonicParsing="false" onAction="#btGradeOnClick" prefHeight="44.0" prefWidth="134.0" style="-fx-background-color: #6dc8c4;" text="Grades" textFill="#222222">
+        <font>
+            <Font name="Jokerman" size="14.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@icons8-student-male-48.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    <Separator layoutY="253.0" prefHeight="5.0" prefWidth="141.0" />
+    <Separator layoutX="1.0" layoutY="310.0" prefHeight="5.0" prefWidth="141.0" />
+    <Button fx:id="goToClub" layoutX="7.0" layoutY="255.0" mnemonicParsing="false" onAction="#goToClubOnClick" prefHeight="44.0" prefWidth="134.0" style="-fx-background-color: #6dc8c4;" text="Clubs" textFill="#222222">
+        <font>
+            <Font name="Jokerman" size="14.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@icons8-student-male-48.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="goToActivity" layoutX="7.0" layoutY="315.0" mnemonicParsing="false" onAction="#goToActivityOnClick" prefHeight="44.0" prefWidth="134.0" style="-fx-background-color: #6dc8c4;" text="Activiy" textFill="#222222">
+        <font>
+            <Font name="Jokerman" size="14.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@icons8-student-male-48.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    
+    <Button fx:id="goToParent" layoutX="4.0" layoutY="365.0" mnemonicParsing="false" onAction="#goToParentOnClick" prefHeight="44.0" prefWidth="141.0" style="-fx-background-color: #6dc8c4;" text="Parent" textFill="#222222">
+        <font>
+            <Font name="Jokerman" size="14.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@icons8-student-male-48.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="goToCour" layoutX="4.0" layoutY="409.0" mnemonicParsing="false" onAction="#goToCourOnClick" prefHeight="44.0" prefWidth="141.0" style="-fx-background-color: #6dc8c4;" text="Cours" textFill="#222222">
+        <font>
+            <Font name="Jokerman" size="14.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@icons8-student-male-48.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="goToSubject" layoutX="4.0" layoutY="453.0" mnemonicParsing="false" onAction="#goToSubjectOnClick" prefHeight="44.0" prefWidth="141.0" style="-fx-background-color: #6dc8c4;" text="Subject" textFill="#222222">
+        <font>
+            <Font name="Jokerman" size="14.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@icons8-student-male-48.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="goToAbscense" layoutX="7.0" layoutY="494.0" mnemonicParsing="false" onAction="#goToAbscenseOnClick" prefHeight="44.0" prefWidth="134.0" style="-fx-background-color: #6dc8c4;" text="Abscense" textFill="#222222">
+        <font>
+            <Font name="Jokerman" size="14.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@icons8-student-male-48.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    <Button fx:id="goToNotification" layoutY="538.0" mnemonicParsing="false" onAction="#goToNotificationOnClick" prefHeight="44.0" prefWidth="141.0" style="-fx-background-color: #6dc8c4;" text="Notification" textFill="#222222">
+        <font>
+            <Font name="Jokerman" size="14.0" />
+        </font>
+        <graphic>
+            <ImageView fitHeight="80.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                <image>
+                    <Image url="@icons8-student-male-48.png" />
+                </image>
+            </ImageView>
+        </graphic>
+    </Button>
+    
+          <AnchorPane fx:id="anchorChour" layoutX="258.0" layoutY="74.0" minHeight="500.0" prefHeight="538.0" prefWidth="511.0" visible="false">
+                     <children>
+      <Label layoutX="14.0" layoutY="14.0" prefHeight="41.0" prefWidth="302.0" text="All courses" textFill="#2d03d3" AnchorPane.bottomAnchor="445.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="491.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold Italic" size="31.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tvCourses" layoutY="75.0" prefHeight="293.0" prefWidth="700.0">
+        <columns>
+          <TableColumn fx:id="subjectW" prefWidth="75.0" text="Subject" />
+            <TableColumn fx:id="content" prefWidth="75.0" text="Content" />
+            <TableColumn fx:id="teacher" prefWidth="75.0" text="Teacher" />
+        </columns>
+         <columnResizePolicy>
+         </columnResizePolicy>
+      </TableView>
+      <Button fx:id="btnUpd" layoutX="523.0" layoutY="460.0" mnemonicParsing="false" onAction="#updateCourse" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: #00d8e4;" text="    Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         </Button>
+      <Button fx:id="btnDel" layoutX="523.0" layoutY="421.0" mnemonicParsing="false" onAction="#deleteCourse" prefHeight="33.0" prefWidth="157.0" style="-fx-background-color: #00d8e4;" text="  Delete" textAlignment="RIGHT" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         </Button>
+      <TextField fx:id="tfuc" layoutX="179.0" layoutY="460.0" promptText="content" />
+      <TextField fx:id="tfut" layoutX="357.0" layoutY="460.0" prefHeight="26.0" prefWidth="157.0" promptText="teacher" />
+      <Button fx:id="btnAdd" layoutX="619.0" layoutY="460.0" mnemonicParsing="false" onAction="#addCourse" prefHeight="26.0" prefWidth="61.0" style="-fx-background-color: #00d8e4;" text="   Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+         </Button>
+      <TextField fx:id="tfSearch" layoutX="504.0" layoutY="22.0" onAction="#searchCourse" promptText="Tap to search..." />
+      <ComboBox fx:id="cbox" layoutX="20.0" layoutY="460.0" prefWidth="150.0" promptText="select subject" />
+      <Button fx:id="btnBrowser" layoutX="361.0" layoutY="421.0" mnemonicParsing="false" onAction="#browse" prefHeight="33.0" prefWidth="143.0" style="-fx-background-color: #00d8e4;" text="    BROWSE" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <WebView fx:id="wv" layoutY="102.0" prefHeight="312.0" prefWidth="700.0" />
+      <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="539.0" layoutY="425.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="614.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@add.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="523.0" layoutY="460.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@update.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="33.0" fitWidth="35.0" layoutX="361.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@browse.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnExit" layoutX="160.0" layoutY="422.0" mnemonicParsing="false" onAction="#exitBrowser" prefHeight="33.0" prefWidth="185.0" style="-fx-background-color: #00d8e4;" text="    exit browser" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         </Button>
+      <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="163.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@goBack%20.png" />
+         </image>
+      </ImageView>
+   </children>
+                    
+                          
+    </AnchorPane>
+    <AnchorPane fx:id="anchorSubject" layoutX="259.0" layoutY="106.0" minHeight="500.0" prefHeight="506.0" prefWidth="662.0">
+                    
+                      <children>
+      <Label fx:id="l2" layoutX="14.0" layoutY="14.0" prefHeight="41.0" prefWidth="203.0" text="All subjects" textFill="#2d03d3" AnchorPane.bottomAnchor="445.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="483.0" AnchorPane.topAnchor="14.0">
+         <font>
+            <Font name="System Bold Italic" size="31.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tvSubjects" layoutY="75.0" prefHeight="340.0" prefWidth="700.0">
+        <columns>
+          <TableColumn fx:id="nameColomn" prefWidth="75.0" text="Name" />
+            <TableColumn fx:id="teacherscolomn" prefWidth="75.0" text="Teachers" />
+            <TableColumn fx:id="classescolomn" prefWidth="75.0" text="Classes" />
+        </columns>
+         <columnResizePolicy>
+         </columnResizePolicy>
+      </TableView>
+      <Button fx:id="btnUpd2" layoutX="529.0" layoutY="460.0" mnemonicParsing="false" onAction="#updateSubject" style="-fx-background-color: #00d8e4;" text="Update" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="btnDel2" layoutX="529.0" layoutY="421.0" mnemonicParsing="false" onAction="#deleteSubject" prefHeight="26.0" prefWidth="147.0" style="-fx-background-color: #00d8e4;" text="Delete" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Button>
+      <TextField fx:id="tfName" layoutX="14.0" layoutY="460.0" prefHeight="26.0" prefWidth="157.0" promptText="name" />
+      <TextField fx:id="tfTeachers" layoutX="179.0" layoutY="460.0" promptText="teachers" />
+      <TextField fx:id="tfClasses" layoutX="357.0" layoutY="460.0" prefHeight="26.0" prefWidth="157.0" promptText="classes" />
+      <Button fx:id="btnAdd2" layoutX="614.0" layoutY="460.0" mnemonicParsing="false" onAction="#addSubject" prefHeight="26.0" prefWidth="61.0" style="-fx-background-color: #00d8e4;" text="Add" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <TextField fx:id="tfSearch2" layoutX="504.0" layoutY="22.0" onAction="#searchSubject" promptText="Tap to search..." />
+   </children>
+                    
+    </AnchorPane>
+    <AnchorPane fx:id="anchorAb" minHeight="500.0" prefHeight="612.0" prefWidth="921.0" visible="false">
+                    
+                    
+                    
+    </AnchorPane>
+    <AnchorPane fx:id="anchorNotif" minHeight="500.0" prefHeight="612.0" prefWidth="921.0" visible="false">
+                    
+                    
+                    
+    </AnchorPane>
+
+    <Separator layoutX="4.0" layoutY="363.0" prefHeight="5.0" prefWidth="141.0" />
+    <Separator layoutX="4.0" layoutY="407.0" prefHeight="5.0" prefWidth="141.0" />
+    <Separator layoutX="4.0" layoutY="451.0" prefHeight="5.0" prefWidth="141.0" />
+    <Separator layoutX="4.0" layoutY="495.0" prefHeight="5.0" prefWidth="141.0" />
+    <Separator layoutX="4.0" layoutY="536.0" prefHeight="5.0" prefWidth="141.0" />
+</AnchorPane>
