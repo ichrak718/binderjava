@@ -16,9 +16,12 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.sql.ResultSet;
+import java.time.LocalDate;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javax.swing.JOptionPane;
+import tn.esprit.binder.entities.FOSUser;
+import tn.esprit.binder.services.ServicesFOS;
 
 /**
  *
@@ -37,7 +40,14 @@ public class ParentService implements IParentService {
         
          try {
  
- 
+      FOSUser u = new FOSUser(p.getName(), p.getName(), p.getMail(),
+                    p.getMail(), (byte) 1, null, p.getName(), java.sql.Date.valueOf(LocalDate.now()), null, java.sql.Date.valueOf(LocalDate.now()), "a:1:{i:0;s:10:\"ROLE_PARENT\";");
+
+            new ServicesFOS().ajouterUser(u);
+            System.out.println(u+"aaaaaaaaaaaaaaaaaaaaaaaaa");
+            p.setId_user(new ServicesFOS().getUserByUsername(u.getUserName()).getId());
+            System.out.println(p.getId_user()+"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+            System.out.println(p+"samaaaaaaaaaar");
            Connection con =MyConnection.getInstance().getCnx();
             //Excecute la requete et envoie dans ResultSet
  

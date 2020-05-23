@@ -153,14 +153,7 @@ public class ParentFormController implements Initializable {
             
        /*FOSUser u = new FOSUser(a.getId(), noma.getText(), noma.getText(), maila.getText(),
         maila.getText(), (byte)1, null, enc.encryptPassword(villea.getText()), null, null, null, "a:1:{i:0;s:16:\"ROLE_FOURNISSEUR\";}");  */
-            FOSUser u = new FOSUser(name, name, mail,
-                    mail, (byte) 1, null, name, java.sql.Date.valueOf(LocalDate.now()), null, java.sql.Date.valueOf(LocalDate.now()), "a:1:{i:0;s:10:\"ROLE_PARENT\";");
-
-            new ServicesFOS().ajouterUser(u);
-            System.out.println(u+"aaaaaaaaaaaaaaaaaaaaaaaaa");
-            p.setId_user(new ServicesFOS().getUserByUsername(u.getUserName()).getId());
-            System.out.println(p.getId_user()+"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
-            System.out.println(p+"samaaaaaaaaaar");
+           
             sl.addParent(p);
             AfficherAll();
         }
