@@ -19,6 +19,7 @@ import java.sql.Statement;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
@@ -38,6 +39,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.print.PrinterJob;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -53,6 +57,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.paint.Color;
@@ -60,6 +66,7 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import javax.mail.Message;
 import javax.mail.MessagingException;
 import javax.mail.Session;
@@ -70,11 +77,16 @@ import javax.swing.JOptionPane;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.controlsfx.control.Notifications;
 import tn.esprit.binder.IService.IServiceCourse;
 import tn.esprit.binder.IService.IServiceSubject;
 import tn.esprit.binder.Iservices.club.IActivityService;
 import tn.esprit.binder.Iservices.club.IClubService;
 import tn.esprit.binder.Iservices.club.IParentService;
+import tn.esprit.binder.S.abscenseService;
+import tn.esprit.binder.S.notificationService;
+import tn.esprit.binder.E.Abscense;
+import tn.esprit.binder.E.Notification;
 import tn.esprit.binder.entities.Classes;
 import tn.esprit.binder.entities.Course;
 import tn.esprit.binder.entities.Subject;
@@ -412,10 +424,93 @@ public class HomeBinderController implements Initializable {
     @FXML
     private TableColumn<Course, String> subjectW;
     public List<String> sub;
-    public HomeBinderController() {
+   
+    
+    
+    
+    //RAHMAAAA*********************
+    //NOTIFICATION----------------------------------------------------------
+    
+    
+     @FXML
+    private TableView<ModelNotification> tablenotification;
+    @FXML
+    private TableColumn<ModelNotification, String> category;
+    @FXML
+    private TableColumn<ModelNotification, String> sender;
+    @FXML
+    private TableColumn<ModelNotification, String> receiver;
+    
+     @FXML
+    private TableColumn<ModelNotification, String> contentNo;
+    @FXML
+    private Button btnaddNotif;
+    @FXML
+    private Button btndeleteNotif;
+    @FXML
+    private Button homeNotif;
+    @FXML
+    private Button btnupdateNotif;
+     @FXML
+    private ComboBox<String> sd;
+    public List<String> send;
+    @FXML
+    private ComboBox<String> rc;
+    public List<String> rec;
+    @FXML
+    private ComboBox<String> ca;
+    public List<String> categoryy;
+    
+    public Notification not = new Notification();
+    public List<Notification> Notification;
+    ObservableList<ModelNotification> obListN = FXCollections.observableArrayList();
+    
+    
+    //ABSCENSE----------------------------------
+    
+    @FXML
+    private TableColumn<ModelAbscense, String> groupAbs;
+  
+    @FXML
+    private TableView<ModelAbscense> tableAbscense;
+    @FXML
+    private TableColumn<ModelAbscense, Integer> number;
+    @FXML
+    private TableColumn<ModelAbscense, String> hr;
+    @FXML
+    private Button home;
+    @FXML
+    private Button print;
+     @FXML
+    private TableColumn<ModelAbscense, String> pupilAbs;
+    @FXML
+    private TableColumn<ModelAbscense, Date> dateAbs;
+    @FXML
+    private TableColumn<ModelAbscense, String> subjectAbs;
+    @FXML
+    private Button btnupdateAbs;
+    @FXML
+    private Button btndeleteAbs;
+    @FXML
+    private Button btnAddAbs;
+    
+       private List<ModelAbscense> Abss;
+     
+    public Abscense abs = new Abscense();
+ 
+    public List<Abscense> Abscenses;
+    abscenseService serAb = new abscenseService();
+   
+    ObservableList<ModelAbscense> obListAb = FXCollections.observableArrayList();
+    @FXML
+    private TextField tfRechercherA;
+
+    
+     public HomeBinderController() {
         cnx = MyConnection.getInstance().getCnx();
     }
-
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         //asma-----------------------------------------
@@ -552,8 +647,57 @@ public class HomeBinderController implements Initializable {
         teacherscolomn.setCellValueFactory(new PropertyValueFactory<>("teachers"));
         classescolomn.setCellValueFactory(new PropertyValueFactory<>("classes"));
          // TODO
+         
+         
+         
+         
+         
+        //RAHMA-----------------------
+        // NOTIFICATION-------------------------------
+        
+          category.setCellValueFactory(new PropertyValueFactory<ModelNotification, String>("category"));
+        sender.setCellValueFactory(new PropertyValueFactory<ModelNotification, String>("sender"));
+        receiver.setCellValueFactory(new PropertyValueFactory<ModelNotification, String>("receiver"));
+     
+        contentNo.setCellValueFactory(new PropertyValueFactory<ModelNotification, String>("content"));
+       
+                
+        ObservableList<ModelNotification> obList = new notificationService().getNotificationList();
+        tablenotification.setItems((ObservableList<ModelNotification>) obList);
+        
+      
+         
+         
+         //ABSCENSE----------------
+       pupilAbs.setCellValueFactory(new PropertyValueFactory<ModelAbscense, String>("pupl"));
+        groupAbs.setCellValueFactory(new PropertyValueFactory<ModelAbscense, String>("groupe"));
+        number.setCellValueFactory(new PropertyValueFactory<ModelAbscense, Integer>("nbr"));
+        dateAbs.setCellValueFactory(new PropertyValueFactory<ModelAbscense, Date>("date"));
+        hr.setCellValueFactory(new PropertyValueFactory<ModelAbscense, String>("hour"));
+           subjectAbs.setCellValueFactory(new PropertyValueFactory<ModelAbscense, String>("subject"));
+    
+        
+        obListAb = new abscenseService().getAbscenseList();
+        tableAbscense.setItems(obListAb);
+         
+         
+
+      
+         
+         
+         
+         
     }
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @FXML
     private void btClassOnClick(ActionEvent event) {
         anchorHome.setVisible(false);
@@ -1973,5 +2117,204 @@ message.setRecipients(Message.RecipientType.TO,
         teacherscolomn.setCellValueFactory(new PropertyValueFactory<>("teachers"));
         classescolomn.setCellValueFactory(new PropertyValueFactory<>("classes"));
 
+    }
+    
+    
+    
+    //RAHMA---------------------------
+    //NOTIFICATION-----------------------------
+    
+    
+        @FXML
+    private void btnAddNotif(ActionEvent event) throws IOException {
+          Parent root = FXMLLoader.load(getClass().getResource("AddNot.fxml"));
+
+            Scene tableViewScene = new Scene(root);
+            
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.show();
+       
+    }
+    
+    
+        @FXML
+    private void btnDeleteNotif(ActionEvent event) {
+          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+           alert.setTitle("Delete Notification");
+          // alert.setHeaderText("delete" + not.getId());
+           alert.setContentText("you want to delete that notification? " + tablenotification.getSelectionModel().getSelectedItem().getId() + "?");
+           Optional<ButtonType> result = alert.showAndWait();
+           if (result.get() == ButtonType.OK) {
+               new notificationService().deletenotifiation(tablenotification.getSelectionModel().getSelectedItem().getId());
+               actualiserTableN();
+               Image img = new Image ("/sup.jpg");
+        Notifications notificationBuilder = Notifications.create()
+                .title("Notification Deleted")
+                .text("Done!")
+                .graphic(new ImageView(img))
+                .hideAfter(Duration.seconds(5))
+                .position(Pos.BOTTOM_RIGHT);
+                notificationBuilder.darkStyle();
+                notificationBuilder.show();
+           }
+           if (result.get() == ButtonType.CANCEL) {
+               alert.close();
+           } 
+    }
+    
+    
+    
+           public void actualiserTableN() {
+        tablenotification.getItems().clear();
+        obListN = new notificationService().getNotificationList();
+        tablenotification.setItems(obListN);
+       
+    } 
+           
+             @FXML
+    private void btnUpdateNotif(ActionEvent event) {
+          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Update abscense");
+//        alert.setHeaderText("Updating" + not.getId());
+        alert.setContentText("Would you like to update that? " + tablenotification.getSelectionModel().getSelectedItem().getId()+ "?");
+       // alert.setContentText("Would you like to update That? " + tablenotification.getSelectionModel().getSelectedItem().getId()+ "?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            try {
+                ModelNotification not = tablenotification.getSelectionModel().getSelectedItem();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("updateNot.fxml"));
+                Parent root = loader.load();
+                UpdateNotController ugc = loader.getController();
+                ugc.setNotification(not);
+                tablenotification.getScene().setRoot(root);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+           // Mailtools sendMail = Mailtools.sendMail(not.getSender().getEmail());
+           // Mailtools.sendMail("r.line1997@gmail.com");
+             
+        }
+        if (result.get() == ButtonType.CANCEL) {
+            alert.close();
+                
+        }
+    }
+   
+
+
+            public void setNotif(ModelNotification not) throws ParseException {
+
+        anchorHome.setVisible(false);
+        anchorClassGestion.setVisible(false);
+        listexams.setVisible(false);
+        listgrades.setVisible(false);
+        CID.setVisible(false);
+        AID.setVisible(false);
+        PID.setVisible(false);
+        anchorChour.setVisible(false);
+        anchorSubject.setVisible(false);
+        anchorAb.setVisible(false);
+        anchorNotif.setVisible(true);
+
+    }
+    
+    //ABSCNESE---------------------------------------------
+            
+        public void setAb(ModelAbscense a) throws ParseException {
+
+        anchorHome.setVisible(false);
+        anchorClassGestion.setVisible(false);
+        listexams.setVisible(false);
+        listgrades.setVisible(false);
+        CID.setVisible(false);
+        AID.setVisible(false);
+        PID.setVisible(false);
+         anchorChour.setVisible(false);
+        anchorSubject.setVisible(false);
+        anchorAb.setVisible(true);
+        anchorNotif.setVisible(false);
+
+    }
+                    
+      @FXML
+    private void tfRechecherAOnKeyReleased(KeyEvent event) {
+         tableAbscense.getItems().clear();
+        obListAb = new abscenseService().rechercheActivity(tfRechercherA.getText());
+        tableAbscense.setItems(obListAb);
+    }
+    
+        @FXML
+    private void btnAddAbs(ActionEvent event) {
+                try {
+        Parent root = FXMLLoader.load(getClass().getResource("AddAb.fxml"));
+
+            Scene tableViewScene = new Scene(root);
+            
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            window.setScene(tableViewScene);
+            window.show();
+            } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+    
+        @FXML
+    private void btnDeleteAbs(ActionEvent event) {
+                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+           alert.setTitle("Delete Abscense");
+           alert.setHeaderText("delete" + abs.getId());
+           alert.setContentText("Delete That? " + tableAbscense.getSelectionModel().getSelectedItem().getId() + "?");
+           Optional<ButtonType> result = alert.showAndWait();
+           if (result.get() == ButtonType.OK) {
+               new abscenseService().deleteabscense(tableAbscense.getSelectionModel().getSelectedItem().getId());
+               actualiserTableA();
+        
+           }
+           if (result.get() == ButtonType.CANCEL) {
+               alert.close();
+    
+           }
+    }
+    
+        @FXML
+    private void btnUpdateAbs(ActionEvent event) {
+          Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Update abscense");
+        alert.setHeaderText("Updating" + abs.getId());
+        alert.setContentText("Would you like to update that? " + tableAbscense.getSelectionModel().getSelectedItem().getId()+ "?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            try {
+                ModelAbscense abs = tableAbscense.getSelectionModel().getSelectedItem();
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("updateA.fxml"));
+                Parent root = loader.load();
+                UpdateAController ugc = loader.getController();
+                ugc.setAbscense(abs);
+                tableAbscense.getScene().setRoot(root);
+            } catch (IOException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+        if (result.get() == ButtonType.CANCEL) {
+            alert.close();
+        }
+    }
+    
+        public void actualiserTableA() {
+        tableAbscense.getItems().clear();
+        obListAb = new abscenseService().getAbscenseList();
+        tableAbscense.setItems(obListAb);
+    } 
+        
+           @FXML
+    private void btnprint(ActionEvent event) {
+                 final PrinterJob printerJob = PrinterJob.createPrinterJob();
+        if (printerJob.showPrintDialog(tableAbscense.getScene().getWindow())) {
+            if (printerJob.printPage(tableAbscense)) {
+                printerJob.endJob();
+            }
+        }
+          
     }
 }

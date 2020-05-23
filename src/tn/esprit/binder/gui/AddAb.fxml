@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="listAbs" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tn.esprit.binder.gui.AddAbController">
+   <children>
+      <Label layoutX="145.0" layoutY="110.0" text="Pupil" />
+      <Label layoutX="136.0" layoutY="200.0" text="Number" />
+      <Label layoutX="140.0" layoutY="246.0" text="Date" />
+      <Label layoutX="138.0" layoutY="323.0" text="Subject" />
+      <Spinner fx:id="number" layoutX="208.0" layoutY="196.0" />
+      <Button fx:id="btnadd" layoutX="444.0" layoutY="307.0" mnemonicParsing="false" onAction="#btnAdd" prefHeight="44.0" prefWidth="111.0" style="-fx-background-color: #48d1cc;" text="ADD">
+         <textFill>
+            <LinearGradient endX="0.009523809523809525" endY="0.0761904761904762">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#732727" offset="0.007662835249042145" />
+                  <Stop color="#0000005c" offset="0.007662835249042145" />
+                  <Stop color="#752727" offset="0.8969072164948448" />
+                  <Stop color="#804949" offset="0.9484536082474228" />
+                  <Stop color="BLACK" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Button>
+      <Button fx:id="btnBack" layoutX="561.0" layoutY="305.0" mnemonicParsing="false" onAction="#btnBAck" prefHeight="44.0" prefWidth="111.0" style="-fx-background-color: #dc143c;" text="   Cancel">
+         <textFill>
+            <LinearGradient endX="0.009523809523809525" endY="0.0761904761904762">
+               <stops>
+                  <Stop color="BLACK" />
+                  <Stop color="#732727" offset="0.007662835249042145" />
+                  <Stop color="#0000005c" offset="0.007662835249042145" />
+                  <Stop color="#752727" offset="0.8969072164948448" />
+                  <Stop color="#804949" offset="0.9484536082474228" />
+                  <Stop color="BLACK" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </textFill>
+         <font>
+            <Font size="13.0" />
+         </font></Button>
+      <Label fx:id="group" layoutX="141.0" layoutY="155.0" text="Group" />
+      <ComboBox fx:id="sb" layoutX="207.0" layoutY="322.0" prefWidth="150.0" />
+      <ComboBox fx:id="pp" layoutX="207.0" layoutY="106.0" prefWidth="150.0" />
+      <ComboBox fx:id="gr" layoutX="207.0" layoutY="151.0" prefWidth="150.0" />
+      <DatePicker fx:id="datee" layoutX="209.0" layoutY="242.0" prefHeight="25.0" prefWidth="149.0" />
+      <ComboBox fx:id="hr" layoutX="207.0" layoutY="279.0" prefWidth="150.0" />
+      <Label layoutX="139.0" layoutY="283.0" text="Hour" />
+      <Label fx:id="error" layoutX="370.0" layoutY="242.0" prefHeight="25.0" prefWidth="208.0" text="fill in the date field" textFill="#f20202" visible="false">
+         <font>
+            <Font size="13.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="78.0" fitWidth="34.0" layoutX="444.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@add.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="34.0" fitWidth="40.0" layoutX="561.0" layoutY="315.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@goBack%20.png" />
+         </image>
+      </ImageView>
+      <Pane layoutX="-29.0" prefHeight="69.0" prefWidth="734.0" style="-fx-background-color: #48d1cc;">
+         <children>
+            <Label layoutX="321.0" layoutY="18.0" text="ADD Abscense">
+               <font>
+                  <Font size="25.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="69.0" fitWidth="126.0" layoutX="160.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@zz.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

@@ -833,14 +833,151 @@
                     
     </AnchorPane>
     <AnchorPane fx:id="anchorAb" minHeight="500.0" prefHeight="612.0" prefWidth="921.0" visible="false">
-                    
-                    
-                    
-    </AnchorPane>
+     
+        
+         <children>
+      <Pane layoutX="-3.0" layoutY="-11.0" prefHeight="72.0" prefWidth="706.0" style="-fx-background-color: #48d1cc;">
+         <children>
+            <Label layoutX="222.0" layoutY="13.0" text="Abscenses Management">
+               <font>
+                  <Font size="32.0" />
+               </font>
+            </Label>
+                <ImageView fitHeight="47.0" fitWidth="158.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@binder.PNG" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TableView fx:id="tableAbscense" layoutX="150.0" layoutY="164.0" prefHeight="394.0" prefWidth="480.0" >         <columns>
+            <TableColumn fx:id="pupilAbs" prefWidth="75.0" text="Pupil "/>
+            <TableColumn fx:id="groupAbs" prefWidth="75.0" text="Group" />
+            <TableColumn fx:id="number" prefWidth="75.0" text="Number" />
+            <TableColumn fx:id="dateAbs" prefWidth="75.0" text="Date" />
+            <TableColumn fx:id="subjectAbs" prefWidth="75.0" text="Subject" />
+            <TableColumn fx:id="hr" prefWidth="75.0" text="Hour" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnupdateAbs" layoutX="650.0" layoutY="232.0" mnemonicParsing="false" onAction="#btnUpdateAbs" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #48d1cc;" text="UPDATE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="btndeleteAbs" layoutX="650.0" layoutY="274.0" mnemonicParsing="false" onAction="#btnDeleteAbs" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #48d1cc;" text="DELETE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="btnAddAbs" layoutX="650.0" layoutY="188.0" mnemonicParsing="false" onAction="#btnAddAbs" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #48d1cc;" text="ADD">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Pane layoutY="94.0" prefHeight="87.0" prefWidth="677.0">
+         <children>
+            <TextField fx:id="tfRechercherA" layoutX="200.0" layoutY="7.0" onKeyReleased="#tfRechecherOnKeyReleased" prefHeight="25.0" prefWidth="350.0" promptText="Search" />
+            
+          
+             <ImageView fitHeight="30.5" fitWidth="29.0" layoutX="170.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@icons8-search-100%20(1).png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+     
+      <Button fx:id="print" layoutX="650.0" layoutY="315.0" mnemonicParsing="false" onAction="#btnprint" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: #48d1cc;" text="PRINT">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <ImageView fitHeight="41.0" fitWidth="41.0" layoutX="650.0" layoutY="182.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@add.png" />
+         </image>
+      </ImageView>
+     
+      <ImageView fitHeight="41.0" fitWidth="29.0" layoutX="650.0" layoutY="274.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delete.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="29.0" fitWidth="41.0" layoutX="650.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@update.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="41.0" fitWidth="35.0" layoutX="650.0" layoutY="309.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@print.png" />
+         </image>
+      </ImageView>
+   </children>
+        
+ </AnchorPane>
+
+    
+    
     <AnchorPane fx:id="anchorNotif" minHeight="500.0" prefHeight="612.0" prefWidth="921.0" visible="false">
-                    
-                    
-                    
+        
+     <children>
+      <Pane prefHeight="83.0" prefWidth="700.0" style="-fx-background-color: #48d1cc  #48d1cc;">
+         <children>
+            <Label layoutX="206.0" layoutY="22.0" text="Notifications Management">
+               <font>
+                  <Font name="JasmineUPC" size="41.0" />
+               </font>
+            </Label>
+                <ImageView fitHeight="47.0" fitWidth="158.0" layoutX="14.0" layoutY="17.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@binder.PNG" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <TableView fx:id="tablenotification" layoutX="150.0" layoutY="164.0" prefHeight="394.0" prefWidth="300.0" >
+         <columns>
+
+
+            <TableColumn fx:id="category" prefWidth="75.0" text="Category" />
+            <TableColumn fx:id="sender" prefWidth="75.0" text="Sender" />
+            <TableColumn fx:id="receiver" prefWidth="75.0" text="Receiver" />
+            <TableColumn fx:id="contentNo" prefWidth="75.0" text="Content" />
+         </columns>
+      </TableView>
+      <Button fx:id="btnaddNotif" layoutX="474.0" layoutY="204.0" mnemonicParsing="false" onAction="#btnAddNotif" prefHeight="6.0" prefWidth="168.0" style="-fx-background-color: #48d1cc  #48d1cc;" text="ADD">
+       
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+      <Button fx:id="btndeleteNotif" layoutX="474.0" layoutY="286.0" mnemonicParsing="false" onAction="#btnDeleteNotif" prefHeight="12.0" prefWidth="168.0" style="-fx-background-color: #48d1cc;" text="DELETE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font></Button>
+     
+      <Button fx:id="btnupdateNotif" layoutX="474.0" layoutY="247.0" mnemonicParsing="false" onAction="#btnUpdateNotif" prefHeight="6.0" prefWidth="168.0" style="-fx-background-color: #48d1cc  #48d1cc;" text="UPDATE">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="46.0" fitWidth="40.0" layoutX="474.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@update.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="474.0" layoutY="281.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@delete.png" />
+         </image>
+      </ImageView>
+     
+      <ImageView fitHeight="49.0" fitWidth="40.0" layoutX="474.0" layoutY="199.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@add.png" />
+         </image>
+      </ImageView>
+         
+   </children>
+      
+     
+                 
     </AnchorPane>
 
     <Separator layoutX="4.0" layoutY="363.0" prefHeight="5.0" prefWidth="141.0" />
